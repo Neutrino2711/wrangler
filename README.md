@@ -20,6 +20,38 @@ are manually created.
 
 ## New Features
 
+### Byte Size and Time Duration Parsers
+
+#### Byte Size Parser
+**Directive**: `parse-as-bytes`  
+**Description**: Parses string representations of byte sizes (e.g., `10KB`, `1.5MB`) into numeric values in bytes.  
+**Supported Units**:
+- `B` (bytes)
+- `KB` (kilobytes, 1024 bytes)
+- `MB` (megabytes, 1024² bytes)
+- `GB` (gigabytes, 1024³ bytes)
+- `TB` (terabytes, 1024⁴ bytes)
+
+#### Time Duration Parser
+**Directive**: `parse-as-duration`  
+**Description**: Converts human-readable time duration strings to numeric nanosecond values. Supports flexible unit conversion.  
+**Supported Units**:
+| Unit | Name          | Nanoseconds | Common Usage |
+|------|---------------|-------------|--------------|
+| ns   | Nanoseconds   | 1           | High-precision timing |
+| µs   | Microseconds  | 1000        | Network latency |
+| ms   | Milliseconds  | 1000000     | Application response |
+| s    | Seconds       | 1000000000  | General timing |
+| m    | Minutes       | 60000000000 | Long operations |
+| h    | Hours         | 3600000000000 | System uptime |
+| d    | Days          | 86400000000000 | Batch processing |
+
+**Usage**:
+```plaintext
+parse-as-duration :source_column :target_column [--output=ns|µs|ms|s|m|h|d] [--precision=N] [--round=floor|ceil|round]
+
+
+
 More [here](wrangler-docs/upcoming-features.md) on upcoming features.
 
   * **User Defined Directives, also known as UDD**, allow you to create custom functions to transform records within CDAP DataPrep or a.k.a Wrangler. CDAP comes with a comprehensive library of functions. There are however some omissions, and some specific cases for which UDDs are the solution. Additional information on how you can build your custom directives [here](wrangler-docs/custom-directive.md).
