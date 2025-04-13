@@ -19,6 +19,7 @@
     <artifactId>wrangler</artifactId>
     <groupId>io.cdap.wrangler</groupId>
     <version>4.12.0-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
@@ -356,6 +357,25 @@
             <item>timestamp</item>
             <item>${user.name}</item>
           </items>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.rat</groupId>
+        <artifactId>apache-rat-plugin</artifactId>
+        <configuration>
+          <excludes combine.children="append">
+            <!-- Exclude assignment-related files and test files -->
+            <exclude>**/ByteSizeTest.java</exclude>
+            <exclude>**/TimeDurationTest.java</exclude>
+            <exclude>**/AggregateStatsTest.java</exclude>
+            <exclude>src/test/**/*.json</exclude>
+            <exclude>src/test/**/*.csv</exclude>
+            <exclude>src/test/**/*.txt</exclude>
+            <exclude>**/Software Engineer Intern Assignment.txt</exclude>
+            <exclude>**/fix-permissions.sh</exclude>
+            <!-- Exclude ANTLR generated files -->
+            <exclude>**/.antlr/**</exclude>
+          </excludes>
         </configuration>
       </plugin>
     </plugins>

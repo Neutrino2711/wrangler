@@ -31,7 +31,7 @@ import java.io.InputStream;
 import java.nio.file.Path;
 
 /**
- * Class description here.
+ * Recipe compiler for the wrangler directives.
  */
 public final class RecipeCompiler implements Compiler {
 

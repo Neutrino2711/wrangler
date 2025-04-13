@@ -34,8 +34,10 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * This class <code>GrammarBasedParser</code> is an implementation of <code>RecipeParser</code>.
- * It's responsible for compiling the recipe and checking all the directives exist before concluding
+ * This class <code>GrammarBasedParser</code> is an implementation of
+ * <code>RecipeParser</code>.
+ * It's responsible for compiling the recipe and checking all the directives
+ * exist before concluding
  * that the directives are ready for execution.
  */
 public class GrammarBasedParser implements RecipeParser {
@@ -50,7 +52,7 @@ public class GrammarBasedParser implements RecipeParser {
   }
 
   public GrammarBasedParser(String namespace, String[] directives,
-                            DirectiveRegistry registry, DirectiveContext context) {
+      DirectiveRegistry registry, DirectiveContext context) {
     this(namespace, Joiner.on(EOL).join(directives), registry, context);
   }
 
@@ -62,7 +64,8 @@ public class GrammarBasedParser implements RecipeParser {
   }
 
   /**
-   * Parses the recipe provided to this class and instantiate a list of {@link Directive} from the recipe.
+   * Parses the recipe provided to this class and instantiate a list of
+   * {@link Directive} from the recipe.
    *
    * @return List of {@link Directive}.
    */
@@ -77,8 +80,8 @@ public class GrammarBasedParser implements RecipeParser {
         DirectiveInfo info = registry.get(namespace, command);
         if (info == null) {
           throw new DirectiveNotFoundException(
-            String.format("Directive '%s' not found in system and user scope. Check the name of directive.", command)
-          );
+              String.format("Directive '%s' not found in system and user scope. Check the name of directive.",
+                  command));
         }
 
         try {

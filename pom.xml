@@ -32,7 +32,6 @@
     <module>wrangler-service</module>
     <module>wrangler-storage</module>
     <module>wrangler-test</module>
-    <module>wrangler-transform</module>
   </modules>
 
   <licenses>
@@ -234,6 +233,11 @@
                   <exclude>wrangler-demos/**</exclude>
                   <exclude>**/com/example/**</exclude>
                   <exclude>/**/icons/**</exclude>
+                  <!-- Exclude assignment-related files -->
+                  <exclude>**/Software Engineer Intern Assignment.txt</exclude>
+                  <exclude>**/fix-permissions.sh</exclude>
+                  <exclude>**/prompts.txt</exclude>
+                  <exclude>**/compile-output.txt</exclude>
                 </excludes>
               </configuration>
             </execution>
